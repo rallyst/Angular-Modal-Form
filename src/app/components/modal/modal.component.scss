@@ -1,0 +1,277 @@
+::ng-deep {
+  .mat-dialog-container {
+    border-radius: 20px;
+    padding: 38px 90px;
+    box-shadow: -4px 6px 20px 2px rgba(35, 43, 56, 0.2);
+  }
+}
+
+option {
+  display: inline-block;
+}
+
+form {
+  position: relative;
+}
+
+.header {
+  position: relative;
+  display: flex;
+  margin-bottom: 44px;
+  max-width: 170px;
+  
+
+  &::before {
+    content: "";
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    bottom: 0;
+    width: 44px;
+    height: 44px;
+    background: url('../../../assets/icons/edit.svg') center / contain no-repeat;
+  }
+}
+
+.title-input {
+  font-size: 1.1rem;
+  font-weight: 600;
+  width: 100%;
+  height: 44px;
+  border: none;
+  outline: none;
+
+  &::placeholder {
+    color: black;
+    opacity: 1;
+  }
+
+  &:focus {
+    border-bottom: 1px solid rgba(180, 177, 177, .6);
+  }
+}
+
+// Start route 
+
+.route {
+  width: 100%;
+  display: grid;
+  grid-template-columns: fit-content(200px) 1fr fit-content(200px);
+
+  @media (max-width: 768px) {
+    grid-template-columns:  1fr;
+  }
+  
+  input {
+    width: 170px;
+  }
+
+  margin-bottom: 38px;
+
+  &__input {
+    input {
+      margin-bottom: 7px;
+    }
+
+    &::before {
+      width: 23px;
+      height: 23px;
+      top: 30px;
+      background: url('../../../assets/icons/location.svg') center / contain no-repeat;
+    }
+  }
+}
+
+.calendar {
+  input {
+    background-color: #fff;
+  }
+
+  &::before {
+    width: 23px;
+    height: 23px;
+    top: 72px;
+    left: -160px;
+    background: url('../../../assets/icons/time.svg') center / contain no-repeat;
+  }
+}
+
+.total-time {
+  input {
+    width: 106px;
+  }
+
+  &::before {
+    top: 14px;
+    background: url('../../../assets/icons/time.svg') center / contain no-repeat;
+    width: 23px;
+  }
+}
+
+.time-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// end route
+
+.hint {
+  display: block;
+  font-size: 12px;
+  color: #78859A
+}
+
+.title {
+  font-size: 1.1rem;
+  margin: 0;
+  margin-bottom: 6px;
+}
+
+.driver {
+  max-width: 500px;
+  margin-bottom: 39px;
+
+  &__self {
+    display: flex;
+    flex-direction: column;
+
+    &::before {
+      background: url('../../../assets/icons/person.svg') center / contain no-repeat;
+    }
+  }
+
+  &__other {
+    input {
+      margin-top: 15px;
+      background-color: #fff;
+    }
+    &::before {
+      background: url('../../../assets/icons/people_alt.svg') center / contain no-repeat;
+    }
+  }
+}
+
+.input-block {
+  display: flex;
+  position: relative;
+}
+
+.car {
+  margin-bottom: 30px;
+
+  input, 
+  select {
+    background-color: #fff;
+  }
+
+  &__make {
+
+    &::before {
+      background: url('../../../assets/icons/icon_wheel.svg') center / contain no-repeat;
+    }
+  }
+
+  &__registration {
+    margin-left: 24px;
+    background-color: #fff;
+    &::before {
+      background: url('../../../assets/icons/settings.svg') center / contain no-repeat;
+    }
+  }
+}
+
+
+.control {
+  width: 100%;;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.close-btn {
+  position: absolute;
+  top: -10px;
+  right: 0;
+  transition: transform .25s;
+	opacity: .7;
+	cursor: pointer;
+	font-size: 3rem;
+
+  &::before {
+    content: "\d7";
+  }
+
+  &:hover {
+    opacity: 1;
+	  transform: rotate(90deg);
+  }
+}
+
+.input {
+  padding-left: 38px;
+  height: 52px;
+  width: 188px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: -4px 5px 20px rgba(180, 177, 177, .2);
+  background-color: #DDE4FF;
+  background-size: 24px;
+  font-size: 1rem;
+  outline: none;
+
+  &:focus {
+    border: 1px solid rgba(180, 177, 177, .8);
+  }
+}
+
+label {
+  position: relative;
+}
+
+label:before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 14px;
+  bottom: 0;
+  width: 24px;
+}
+
+// Toggle
+
+.toggle-button {
+  position: relative;
+ display: inline-block;
+ width: 400px;
+ height: 52px;
+ margin: 0;
+ vertical-align: top;
+ background: #fff;
+ border: 1px solid #bbc1e1;
+ outline: none;
+ cursor: pointer;
+  appearance: none;
+  transition: all 0.3s cubic-bezier(0.2, 0.85, 0.32, 1.2);
+}
+
+.toggle-button::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 188px;
+  height: 52px;
+  background-color: #DDE4FF;
+  border-radius: 10px;
+  transition: all 0.3s cubic-bezier(0.2, 0.85, 0.32, 1.2);
+  transform: translateX(0);
+}
+
+.toggle-button:checked::after {
+  transform: translateX(calc(100% + 3px));
+  background-color: #fff;  
+}
+.toggle-button:checked {
+  background-color: blue;
+}

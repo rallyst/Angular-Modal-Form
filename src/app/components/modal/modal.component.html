@@ -1,0 +1,60 @@
+<form class="container" [formGroup]="form">
+  <section class="header">
+      <input class="title-input" type="text" placeholder="LOG --NAME">
+  </section>
+  <section class="route">
+    <div>
+      <label class="route__input">
+        <span class="hint">Departue</span>
+        <input class="input" type="text" placeholder="from">
+      </label>
+      <label class="calendar">
+        <span class="hint">Departue date and time</span>
+        <input class="input" type="text" placeholder="--/--/----|--:--">
+      </label>
+    </div>
+    <div class="time-container">
+      <label class="total-time">
+        <span class="hint">Total time</span>
+        <input class="input" type="text" placeholder="0 h 0 m">
+      </label>
+    </div>
+    <div>
+      <label class="route__input">
+        <span class="hint">Arrival</span>
+        <input class="input" type="text" placeholder="to">
+      </label>
+      <label class="calendar">
+        <span class="hint">Arrival date and time</span>
+        <input class="input" type="text" placeholder="--/--/----|--:--">
+      </label>
+    </div>
+  </section>
+  <section class="driver">
+    <h4 class="title">Driver information</h4>
+    <div class="input-block">
+      <app-toggle-input></app-toggle-input>
+    </div>
+  </section>
+  <section class="car">
+    <h4 class="title">Car information</h4>
+    <div class="input-block">
+      <label class="car__make">
+        <span class="hint">Make & model</span>
+        <input class="input" type="text" placeholder="Make  |  Model">
+      </label>
+      <label class="car__registration">
+        <span class="hint">Registration number</span>
+        <app-select></app-select>
+      </label>
+    </div>
+  </section>
+  <section class="control">
+    <app-button bg="white" color="black" (click)="test()">Drafts</app-button>
+    <app-button 
+      [disabled]="form.invalid"
+      (click)="submit(form.value)">Save to log book</app-button>
+  </section>
+  
+  <a (click)="close()"><span class="close-btn"></span></a>
+</form>

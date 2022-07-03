@@ -1,0 +1,140 @@
+.container {
+  position: relative;
+  user-select: none;
+  width: 188px;
+}
+
+.select {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.select__trigger {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 13px;
+  color: #78859A;
+  height: 52px;
+  line-height: 52px;
+  border-radius: 10px;
+  box-shadow: -4px 5px 20px rgba(180, 177, 177, 0.2);
+  cursor: pointer;
+}
+
+.options {
+  position: absolute;
+  display: block;
+  top: 100%;
+  left: 0;
+  right: 0;
+  border-radius: 10px;
+  background: #fff;
+  transition: all 0.5s;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.select.open .options {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+
+.background {
+  background-color: #DDE4FF;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.header {
+  font-size: .9rem;
+  font-weight: 600;
+}
+
+.car-info {
+  font-size: .63rem;
+}
+
+.holder {
+  position: relative;
+  padding-left: 25px;
+
+  &::before {
+    content: '';
+    width: 24px;
+    height: 24px;
+    top: 14px;
+    left: -5px;
+    position: absolute;
+    background: url('../../../../assets/icons/settings.svg') center / contain no-repeat;
+  }
+}
+
+.option {
+  position: relative;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  padding: 6px 8px;
+  color: #3b3b3b;
+  cursor: pointer;
+  transition: all 0.5s;
+
+  &:hover {
+    cursor: pointer;
+    background-color: #DDE4FF;
+    border-radius: 10px;
+  }
+}
+
+.option.selected {
+  color: #ffffff;
+  background-color: #305c91;
+}
+
+.arrow {
+  position: relative;
+  height: 8px;
+  width: 6px;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    width: 0.15rem;
+    height: 100%;
+    transition: all 0.5s;
+    background-color: #00112C;
+  }
+
+  &::before {
+    transform: rotate(-45deg);
+  }
+
+  &::after {
+    left: 5px;
+    transform: rotate(45deg);
+  }
+}
+
+.open .arrow {
+  &::before {
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    left: 5px;
+    transform: rotate(-45deg);
+  }
+}
