@@ -17,11 +17,9 @@ export class ButtonComponent implements OnInit, AfterViewInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.color)
   }
 
   ngAfterViewInit(): void {
-      console.log(this.color)
   }
 
 }

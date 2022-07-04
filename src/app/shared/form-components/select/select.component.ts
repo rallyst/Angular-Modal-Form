@@ -1,4 +1,5 @@
-import { AfterViewChecked, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { AfterViewChecked, ChangeDetectorRef, Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Car } from 'src/app/models/car';
 import { TravelService } from 'src/app/services/travel.service';
 
 @Component({
@@ -7,17 +8,20 @@ import { TravelService } from 'src/app/services/travel.service';
   styleUrls: ['./select.component.scss']
 })
 export class SelectComponent implements OnInit, AfterViewChecked {
-  cars: any;
+  cars!: Car[];
   classOpen: any;
   classBG: any;
   isOpened = false;
+  carRegistration = 'Registration';
+
+  @Output() carSelected: EventEmitter<Car> = new EventEmitter<Car>();
+
   constructor(
     private travelService: TravelService,
     private cdRef: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     this.cars = this.travelService.cars;
-    console.log(this.cars)
   }
 
   ngAfterViewChecked() {
@@ -41,5 +45,10 @@ export class SelectComponent implements OnInit, AfterViewChecked {
   select() {
     this.isOpened =!this.isOpened
     console.log('click')
+  }
+
+  selectCard(index: number) {
+    this.carRegistration = this.cars[index].registration;
+    this.carSelected.emit(this.cars[index]);
   }
 }

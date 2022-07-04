@@ -1,12 +1,12 @@
 <div class="container" (click)="select()">
   <div [ngClass]="classOpen" class="select">
-    <div [ngClass]="classBG" class="select__trigger"><span class="holder">Registration</span>
-        <div class="arrow" ></div>
+    <div [ngClass]="classBG" class="select__trigger"><span class="holder">{{ carRegistration }}</span>
+      <div class="arrow" ></div>
     </div>
     <div class="options" [ngClass]="addClass()">
-      <div class="option" *ngFor="let car of cars">
-        <img *ngIf="car.img" class="icon" src="{{ car.img }}" alt="{{ car.make }}">
-        <img *ngIf="!car.img" class="icon" src="../../../../assets/NoImage.png" alt="no image">
+      <div class="option" (click)="selectCard(i)" *ngFor="let car of cars; let i = index">
+        <img *ngIf="car.imgPath" class="icon" src="{{ car.imgPath }}" alt="{{ car.make }}">
+        <img *ngIf="!car.imgPath" class="icon" src="../../../../assets/NoImage.png" alt="no image">
         <div>
           <div class="header">{{ car.registration }}</div>
           <div class="car-info"><span>{{ car.make }}</span><span>{{ car.model }}</span></div>

@@ -1,6 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Car } from 'src/app/models/car';
+import { TravelService } from 'src/app/services/travel.service';
 
 @Component({
   selector: 'app-modal',
@@ -15,6 +17,7 @@ export class ModalComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     public dialogRef: MatDialogRef<ModalComponent>,
+    private travelService: TravelService,
     @Inject(MAT_DIALOG_DATA) data: { message: string }) { 
       this.data = data;
       this.form = this.fb.group({
@@ -24,8 +27,15 @@ export class ModalComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  carMake: string = 'Make';
+  carModel: string = 'Model';
+
+  getDataFromSelect(value: any){
+    this.carMake = value.make;
+    this.carModel = value.model;
+  }
+
   submit(form: NgForm) {
-    console.log('Sub: ',form.value)
     this.dialogRef.close({
       form: form
     });

@@ -1,9 +1,11 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { Car } from '../models/car';
 
 @Injectable({
   providedIn: 'root'
 })
-export class TravelService {
+export class TravelService implements OnInit{
 
   locations = [
     'Lviv',
@@ -17,18 +19,29 @@ export class TravelService {
 
   cars = [
     {
+      id: '0',
       make: 'BMW',
       model: 'X3',
       registration: 'AT 1505 BM',
-      img: '../../assets/cars/photo.png'
+      imgPath: '../../assets/cars/photo.png'
     },
     {
+      id: '1',
       make: 'Toyota',
       model: 'Prius',
       registration: 'KA 1234 KA',
-      img: null
+      imgPath: null
     }
   ]
 
+
+  selectedCar: any;
+
+  
+
   constructor() { }
+
+  ngOnInit(): void {
+
+  }
 }

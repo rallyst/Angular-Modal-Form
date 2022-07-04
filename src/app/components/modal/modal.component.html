@@ -1,4 +1,5 @@
 <form class="container" [formGroup]="form">
+  <a (click)="close()"><span class="close-btn"></span></a>
   <section class="header">
       <input class="title-input" type="text" placeholder="LOG --NAME">
   </section>
@@ -32,20 +33,19 @@
   </section>
   <section class="driver">
     <h4 class="title">Driver information</h4>
-    <div class="input-block">
+      <span class="hint">Driver</span>
       <app-toggle-input></app-toggle-input>
-    </div>
   </section>
   <section class="car">
     <h4 class="title">Car information</h4>
     <div class="input-block">
       <label class="car__make">
         <span class="hint">Make & model</span>
-        <input class="input" type="text" placeholder="Make  |  Model">
+        <input class="input" type="text" placeholder="Make  |  Model" value="{{carMake}} | {{carModel}}">
       </label>
       <label class="car__registration">
         <span class="hint">Registration number</span>
-        <app-select></app-select>
+        <app-select (carSelected)="getDataFromSelect($event)"></app-select>
       </label>
     </div>
   </section>
@@ -55,6 +55,4 @@
       [disabled]="form.invalid"
       (click)="submit(form.value)">Save to log book</app-button>
   </section>
-  
-  <a (click)="close()"><span class="close-btn"></span></a>
 </form>

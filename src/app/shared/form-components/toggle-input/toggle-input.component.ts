@@ -26,6 +26,5 @@ export class ToggleInputComponent implements OnInit {
 
   toggler() {
     this.isChecked = !this.isChecked;
-    console.log('tegg ', this.isChecked)
   }
 }
